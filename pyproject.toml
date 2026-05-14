@@ -1,0 +1,31 @@
+[project]
+name = "papermind"
+version = "1.0.0"
+description = "Agentic RAG chat app for understanding research papers"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "python-multipart>=0.0.20",
+    "langchain>=0.3",
+    "langchain-community>=0.3",
+    "langchain-groq>=0.2",
+    "langchain-chroma>=0.1",
+    "langchain-huggingface>=0.1",
+    "langchain-text-splitters>=0.3",
+    "langgraph>=0.2",
+    "chromadb>=1.0",
+    "sentence-transformers>=3.0",
+    "tavily-python>=0.5.0",
+    "pypdf>=5.0",
+    "python-dotenv>=1.0",
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
