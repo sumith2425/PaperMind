@@ -210,16 +210,6 @@ pnpm --filter @workspace/jarvis run build
 STATIC_DIR=artifacts/jarvis/dist/public uv run python -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
 ```
 
-### Hosting options
-
-| Option | What you do |
-| ------ | ----------- |
-| **Render / Railway / Fly.io** (free tiers) | Push to GitHub, connect the host, use the production command above with `--port $PORT`. |
-| **Your own VPS** | Run the setup steps above, then put nginx in front for TLS. |
-| **Vercel + separate API** | Deploy the frontend on Vercel, the FastAPI backend on Render/Railway. |
-
----
-
 ## Swapping the LLM provider
 
 ```bash
@@ -230,20 +220,20 @@ OLLAMA_MODEL=llama3
 
 All supported environment variables:
 
-| Var                        | Default                                       |
-| -------------------------- | --------------------------------------------- |
-| `LLM_PROVIDER`             | `groq`                                        |
-| `GROQ_MODEL`               | `llama-3.3-70b-versatile` (answers)           |
-| `GROQ_ROUTER_MODEL`        | `llama-3.1-8b-instant` (routing)              |
-| `EMBEDDING_MODEL`          | `sentence-transformers/all-MiniLM-L6-v2`     |
+| Var                        | Default                                        |
+| -------------------------- | ---------------------------------------------  |
+| `LLM_PROVIDER`             | `groq`                                         |
+| `GROQ_MODEL`               | `llama-3.3-70b-versatile` (answers)            |
+| `GROQ_ROUTER_MODEL`        | `llama-3.1-8b-instant` (routing)               |
+| `EMBEDDING_MODEL`          | `sentence-transformers/paraphrase-MiniLM-L3-v2`|
 | `CHUNK_SIZE`               | `1200`                                         |
-| `CHUNK_OVERLAP`            | `80`                                         |
-| `RETRIEVAL_K`              | `4`                                           |
-| `RAG_DISTANCE_THRESHOLD`   | `0.85` (lower = stricter)                     |
-| `WEB_SEARCH_RESULTS`       | `5`                                           |
+| `CHUNK_OVERLAP`            | `80`                                           |
+| `RETRIEVAL_K`              | `4`                                            |
+| `RAG_DISTANCE_THRESHOLD`   | `0.85` (lower = stricter)                      |
+| `WEB_SEARCH_RESULTS`       | `5`                                            |
 | `MAX_HISTORY_TURNS`        | `8`                                            |
-| `JARVIS_DATA_DIR`          | `./backend/data`                              |
-| `BACKEND_PORT`             | `8000` (Vite proxy target)                    |
+| `JARVIS_DATA_DIR`          | `./backend/data`                               |
+| `BACKEND_PORT`             | `8000` (Vite proxy target)                     |
 
 ---
 
